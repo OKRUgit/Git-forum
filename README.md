@@ -9,6 +9,17 @@
 [![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/Asgaros/asgaros-forum)](https://github.com/Asgaros/asgaros-forum/pulls)
 
 Asgaros Forum is a lightweight and simple plugin to extend WordPress with the function of a forum.
+Форум Asgaros - это легкий и простой плагин для расширения WordPress с функцией форума.
+
+## Описание
+Форум Asgaros-это идеальный плагин WordPress, если вы хотите расширить свой веб-сайт с помощью легкой и богатой функциональной дискуссионной доской.Его легко настроить, очень быстро и идеально интегрировано в WordPress.
+
+### Поддержка, демонстрация и документация
+* [Support & Demo](https://www.asgaros.de/support/)
+* [Documentation](https://www.asgaros.de/docs/)
+* [Available Hooks](hooks.md)
+
+
 
 ## Description
 Asgaros Forum is the perfect WordPress plugin if you want to extend your website with a lightweight and feature-rich discussion board. It is easy to set up, super fast and perfectly integrated into WordPress.
