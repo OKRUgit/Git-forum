@@ -1,8 +1,6 @@
-<<<<<<< HEAD
+
 <p align="center"><a href="https://yvsik.ru/forum/"  target="_blank" rel="noopener noreferrer"><img src="https://yvsik.ru/wp-content/uploads/2023/01/3cropped-GIT.png" alt="Git Forum"></a></p>
-=======
-<p align="center"><a href="https://yvsik.ru/forum/" target="_blank" rel="noopener noreferrer"><img src="admin/images/logo.png" alt="Asgaros Forum"></a></p>
->>>>>>> ebe1b3b682249e9a7cc215067fe011e6e15fe9e8
+
 
 [![WordPress Plugin Version](https://img.shields.io/wordpress/plugin/v/asgaros-forum)](https://wordpress.org/plugins/asgaros-forum/)
 [![WordPress Plugin Rating](https://img.shields.io/wordpress/plugin/rating/asgaros-forum)](https://wordpress.org/plugins/asgaros-forum/)
