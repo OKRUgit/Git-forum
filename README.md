@@ -1,4 +1,4 @@
-<p align="center"><a href="https://yvsik.ru/forum/"  target="_blank" rel="noopener noreferrer"><img src="admin/images/logo-git.png" alt="Asgaros Forum"></a></p>
+<p align="center"><a href="https://yvsik.ru/forum/"  target="_blank" rel="noopener noreferrer"><img src="admin/images/logo-git.png" ></a></p>
 
 [![WordPress Plugin Version](https://img.shields.io/wordpress/plugin/v/asgaros-forum)](https://wordpress.org/plugins/asgaros-forum/)
 [![WordPress Plugin Rating](https://img.shields.io/wordpress/plugin/rating/asgaros-forum)](https://wordpress.org/plugins/asgaros-forum/)
