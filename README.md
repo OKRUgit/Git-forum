@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <p align="center"><a href="https://yvsik.ru/forum/"  target="_blank" rel="noopener noreferrer"><img src="https://yvsik.ru/wp-content/uploads/2023/01/3cropped-GIT.png" alt="Git Forum"></a></p>
+=======
+<p align="center"><a href="https://yvsik.ru/forum/" target="_blank" rel="noopener noreferrer"><img src="admin/images/logo.png" alt="Asgaros Forum"></a></p>
+>>>>>>> ebe1b3b682249e9a7cc215067fe011e6e15fe9e8
 
 [![WordPress Plugin Version](https://img.shields.io/wordpress/plugin/v/asgaros-forum)](https://wordpress.org/plugins/asgaros-forum/)
 [![WordPress Plugin Rating](https://img.shields.io/wordpress/plugin/rating/asgaros-forum)](https://wordpress.org/plugins/asgaros-forum/)
@@ -15,9 +19,7 @@
 Форум Asgaros-это идеальный плагин WordPress, если вы хотите расширить свой веб-сайт с помощью легкой и богатой функциональной дискуссионной доской.Его легко настроить, очень быстро и идеально интегрировано в WordPress.
 
 ### Поддержка, демонстрация и документация
-* [Support & Demo](https://www.asgaros.de/support/)
-* [Documentation](https://www.asgaros.de/docs/)
-* [Available Hooks](hooks.md)
+
 
 
 ### Функции
