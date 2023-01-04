@@ -15,9 +15,7 @@
 Форум Asgaros-это идеальный плагин WordPress, если вы хотите расширить свой веб-сайт с помощью легкой и богатой функциональной дискуссионной доской.Его легко настроить, очень быстро и идеально интегрировано в WordPress.
 
 ### Поддержка, демонстрация и документация
-* [Support & Demo](https://www.asgaros.de/support/)
-* [Documentation](https://www.asgaros.de/docs/)
-* [Available Hooks](hooks.md)
+
 
 
 ### Функции
