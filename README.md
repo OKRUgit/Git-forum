@@ -8,7 +8,7 @@
 [![GitHub issues](https://img.shields.io/github/issues-raw/Asgaros/asgaros-forum)](https://github.com/Asgaros/asgaros-forum/issues)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/Asgaros/asgaros-forum)](https://github.com/Asgaros/asgaros-forum/pulls)
 
-Asgaros Forum is a lightweight and simple plugin to extend WordPress with the function of a forum.
+
 Форум Asgaros - это легкий и простой плагин для расширения WordPress с функцией форума.
 
 ## Описание
@@ -20,16 +20,7 @@ Asgaros Forum is a lightweight and simple plugin to extend WordPress with the fu
 * [Available Hooks](hooks.md)
 
 
-
-## Description
-Asgaros Forum is the perfect WordPress plugin if you want to extend your website with a lightweight and feature-rich discussion board. It is easy to set up, super fast and perfectly integrated into WordPress.
-
-### Support, Demo & Documentation
-* [Support & Demo](https://www.asgaros.de/support/)
-* [Documentation](https://www.asgaros.de/docs/)
-* [Available Hooks](hooks.md)
-
-### Features
+### Функции
 * Simple Content Management
 * Profiles & Members List
 * Notifications & Feeds
@@ -50,14 +41,14 @@ Asgaros Forum is the perfect WordPress plugin if you want to extend your website
 * Multisite Compatibility
 * myCRED Integration
 
-## Installation
-* Download `Asgaros Forum`
-* Activate the plugin via the `Plugins` screen in WordPress
-* A new forum-page is automatically created during the installation
-* You can also add a forum to a page manually by adding the `[forum]` shortcode to it
-* Add this page to your menu so your users can access your forum
-* On the left side of the administration area you will find a new menu called `Forum` where you can change the settings and create new categories & forums
-* Thats all!
+## Установка
+* Скачать `Форум Asgaros '
+* Активировать плагин через экран `plugins` в WordPress
+* Новая страница на форуме создается автоматически во время установки
+* Вы также можете добавить форум на страницу вручную, добавив к нему шорт -код `[forum]`
+* Добавьте эту страницу в свое меню, чтобы ваши пользователи могли получить доступ к вашему форуму
+* В левой части области администрирования вы найдете новое меню под названием «Форум», где вы можете изменить настройки и создать новые категории и форумы
+* Это все!
 
-## License
-Asgaros Forum is [GPLv2 licensed](LICENSE)
+## Лицензия
+Форум Асгареса есть [GPLv2 licensed](LICENSE)
