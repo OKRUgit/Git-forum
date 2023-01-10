@@ -1,29 +1,28 @@
 <?php
 
 /*
-  Plugin Name: Asgaros Forum
-  Plugin URI: https://www.asgaros.de
-  Description: Asgaros Forum is the best forum solution for WordPress! It comes with dozens of features in a beautiful design and stays slight, simple and fast.
-  Version: 2.2.1
-  Author: Thomas Belser
-  Author URI: https://www.asgaros.de
-  License: GPL2
-  License URI: https://www.gnu.org/licenses/gpl-2.0.html
-  Text Domain: asgaros-forum
-  Domain Path: /languages
+  Название плагина: форум Asgaros
+  Плагин URI: https://www.asgaros.de
+  Описание: Форум Asgaros - лучшее решение для форума для WordPress!Он поставляется с десятками функций в красивом дизайне и остается небольшим, простым и быстрым.
+  Версия: 2.2.1
+  Автор: Томас Белзер
+  Автор URI: https://www.asgaros.de
+  Лицензия: GPL2
+  Лицензия URI: https://www.gnu.org/licenses/gpl-2.0.html
+  Текстовый домен: Asgaros-forum
+  Домен ПАТ: /Языки
+Форум Asgaros - это бесплатное программное обеспечение: вы можете перераспределить его и/или изменить
+  в соответствии с условиями общей публичной лицензии GNU, опубликованной
+  Фонд бесплатного программного обеспечения, либо версия 2 лицензии, либо
+  любая более поздняя версия.
 
-  Asgaros Forum is free software: you can redistribute it and/or modify
-  it under the terms of the GNU General Public License as published by
-  the Free Software Foundation, either version 2 of the License, or
-  any later version.
+  Форум Asgaros распространяется в надежде, что это будет полезно,
+  но без каких -либо гарантий;даже без подразумеваемой гарантии
+  Торговая способность или пригодность для определенной цели.Увидеть
+  GNU Генеральная публичная лицензия для получения более подробной информации.
 
-  Asgaros Forum is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-  GNU General Public License for more details.
-
-  You should have received a copy of the GNU General Public License
-  along with Asgaros Forum. If not, see https://www.gnu.org/licenses/gpl-2.0.html.
+  Вы должны были получить копию общей публичной лицензии GNU
+  вместе с форумом Асгареса.Если нет, см. Https://www.gnu.org/licenses/gpl-2.0.html.
 */
 
 if (!defined('ABSPATH')) exit;
