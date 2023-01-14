@@ -13,18 +13,18 @@ if (!defined('ABSPATH')) exit;
     <form method="post">
         <?php
 
-        // Render nonce-field.
+        // Рендеринг нера.
         wp_nonce_field('asgaros_forum_save_options');
 
-        // Get selected tab.
+        // Получите выбранную вкладку.
         $selected_tab = 'general';
 
-		// Parse selected tab in URL.
+		// Parse выбрал вкладку в URL.
         if (!empty($_POST['selected_tab']) && isset($this->option_views[$_POST['selected_tab']])) {
             $selected_tab = sanitize_key($_POST['selected_tab']);
         }
 
-        // Generate hidden input for selected tab.
+        // Создать скрытый вход для выбранной вкладки.
         echo '<input type="hidden" name="selected_tab" value="'.esc_attr($selected_tab).'">';
 
         ?>
@@ -33,7 +33,7 @@ if (!defined('ABSPATH')) exit;
             <ul id="settings-tabs">
                 <?php
                 foreach ($this->option_views as $key => $value) {
-                    // Set active-tab class based on state.
+                    // Установите класс Active-Tab на основе состояния.
                     echo '<li data-slug="'.esc_attr($key).'"';
 
 					if ($selected_tab == $key) {

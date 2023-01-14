@@ -21,25 +21,25 @@
 
 
 ### Функции
-* Simple Content Management
-* Profiles & Members List
-* Notifications & Feeds
-* Powerful Editor
-* SEO-friendly
-* Reactions
-* Uploads
-* Search
-* Polls
-* Widgets
-* Statistics
-* Guest Postings
-* Approval, Banning & Reporting
-* Moderators, Permissions & Usergroups
-* Customizable Responsive Theme
-* Multilingualism
-* Multiple Instances
-* Multisite Compatibility
-* myCRED Integration
+* Simple Content Management  Простое управление контентом
+* Profiles & Members List    Список профилей и участников
+* Notifications & Feeds      Уведомления и корма
+* Powerful Editor            Мощный редактор
+* SEO-friendly               SEO-дружелюбный
+* Reactions                  Реакция
+* Uploads                    Загружает
+* Search                     Поиск
+* Polls                      Опросы
+* Widgets                    Виджеты
+* StatisticsЫ                Статистика
+* Guest Postings                      Гостевые сообщения
+* Approval, Banning & Reporting        Утверждение, запрет и отчетность
+* Moderators, Permissions & Usergroups   Модераторы, разрешения и группы пользователей
+* Customizable Responsive Theme         Настраиваемая адаптивная тема
+* Multilingualism                     Многоязычный
+* Multiple Instances                Несколько случаев
+* Multisite Compatibility          Многосайт совместимость
+* MyCred Integration          Моя Интеграция С Кредитами
 
 ## Установка
 * Скачать `Форум Asgaros '
