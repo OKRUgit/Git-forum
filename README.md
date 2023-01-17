@@ -21,25 +21,25 @@
 
 
 ### Функции
-* Simple Content Management-->Простое управление контентом
-* Profiles & Members List-->    Список профилей и участников
-* Notifications & Feeds -->     Уведомления и корма
-* Powerful Editor -->           Мощный редактор
-* SEO-friendly  -->               SEO-дружелюбный
-* Reactions   -->                 Реакция
-* Uploads   -->                   Загружает
-* Search    -->                   Поиск
-* Polls   -->                     Опросы
-* Widgets   -->                   Виджеты
-* StatisticsЫ     -->             Статистика
-* Guest Postings    -->                    Гостевые сообщения
-* Approval, Banning & Reporting   -->       Утверждение, запрет и отчетность
-* Moderators, Permissions & Usergroups  -->   Модераторы, разрешения и группы пользователей
-* Customizable Responsive Theme   -->        Настраиваемая адаптивная тема
-* Multilingualism     -->                  Многоязычный
-* Multiple Instances   -->               Несколько случаев
-* Multisite Compatibility   -->         Многосайт совместимость
-* MyCred Integration    -->        Моя Интеграция С Кредитами
+* Simple Content Management-->ru->Простое управление контентом
+* Profiles & Members List-->ru->    Список профилей и участников
+* Notifications & Feeds --->ru->     Уведомления и корма
+* Powerful Editor -->ru->          Мощный редактор
+* SEO-friendly  -->ru->              SEO-дружелюбный
+* Reactions   -->ru->                Реакция
+* Uploads   -->ru->                  Загружает
+* Search    -->ru->                  Поиск
+* Polls   -->ru->                    Опросы
+* Widgets   -->ru->                  Виджеты
+* StatisticsЫ     -->ru->            Статистика
+* Guest Postings    -->ru->                   Гостевые сообщения
+* Approval, Banning & Reporting   -->ru->       Утверждение, запрет и отчетность
+* Moderators, Permissions & Usergroups  -->ru->  Модераторы, разрешения и группы пользователей
+* Customizable Responsive Theme   -->ru->       Настраиваемая адаптивная тема
+* Multilingualism     -->ru->                  Многоязычный
+* Multiple Instances   -->ru->              Несколько случаев
+* Multisite Compatibility   -->ru->        Многосайт совместимость
+* MyCred Integration    -->ru->        Моя Интеграция С Кредитами
 
 ## Установка
 * Скачать `Форум Asgaros '
