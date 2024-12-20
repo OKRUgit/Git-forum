@@ -1,6 +1,8 @@
 <?php
 
-if (!defined('ABSPATH')) exit;
+if (!defined('ABSPATH')) {
+    exit;
+}
 
 class AsgarosForumRecentPosts_Widget extends WP_Widget {
     private $asgarosforum = null;
@@ -8,7 +10,10 @@ class AsgarosForumRecentPosts_Widget extends WP_Widget {
     public function __construct() {
         global $asgarosforum;
         $this->asgarosforum = $asgarosforum;
-        $widget_ops = array('classname' => 'asgarosforumrecentposts_widget', 'description' => __('Shows recent posts in Asgaros Forum.', 'asgaros-forum'));
+        $widget_ops         = array(
+			'classname'   => 'asgarosforumrecentposts_widget',
+			'description' => __('Shows recent posts in Asgaros Forum.', 'asgaros-forum'),
+		);
 		parent::__construct('asgarosforumrecentposts_widget', __('Asgaros Forum: Recent Posts', 'asgaros-forum'), $widget_ops);
     }
 
@@ -60,8 +65,8 @@ class AsgarosForumRecentPosts_Widget extends WP_Widget {
         $available_forums = implode(',', $available_forums);
 
         // Try to get forum posts.
-        $number = ($instance['number']) ? absint($instance['number']) : 3;
-        $group = isset($instance['group_by_topic']) ? $instance['group_by_topic'] : true;
+        $number = empty($instance['number']) ? 3 : absint($instance['number']);
+        $group  = isset($instance['group_by_topic']) ? $instance['group_by_topic'] : true;
 
         $post_ids = array();
 
@@ -85,13 +90,13 @@ class AsgarosForumRecentPosts_Widget extends WP_Widget {
         $elements = $this->asgarosforum->db->get_results("SELECT p.id, p.text, p.date, p.parent_id, p.author_id, t.name, (SELECT COUNT(*) FROM {$this->asgarosforum->tables->posts} WHERE parent_id = p.parent_id) AS post_counter FROM {$this->asgarosforum->tables->posts} AS p LEFT JOIN {$this->asgarosforum->tables->topics} AS t ON (t.id = p.parent_id) WHERE p.id IN ({$post_ids}) ORDER BY p.id DESC;");
 
         // Get options.
-        $show_avatar = isset($instance['show_avatar']) ? $instance['show_avatar'] : true;
+        $show_avatar  = isset($instance['show_avatar']) ? $instance['show_avatar'] : true;
         $show_excerpt = isset($instance['show_excerpt']) ? $instance['show_excerpt'] : false;
 
         // Get custom values.
-        $title_length = apply_filters('asgarosforum_filter_widget_title_length', 33);
+        $title_length   = apply_filters('asgarosforum_filter_widget_title_length', 33);
         $excerpt_length = apply_filters('asgarosforum_widget_excerpt_length', 66);
-        $avatar_size = apply_filters('asgarosforum_filter_widget_avatar_size', 30);
+        $avatar_size    = apply_filters('asgarosforum_filter_widget_avatar_size', 30);
 
         // Generate output.
         $output = '<div class="asgarosforum-widget">';
@@ -113,7 +118,7 @@ class AsgarosForumRecentPosts_Widget extends WP_Widget {
                 $output .= '<span class="post-author">'.__('by', 'asgaros-forum').'&nbsp;<b>'.$this->asgarosforum->getUsername($element->author_id).'</b></span>';
 
                 if ($show_excerpt) {
-                    $text = esc_html(stripslashes(strip_tags(strip_shortcodes($element->text))));
+                    $text = esc_html(stripslashes(wp_strip_all_tags(strip_shortcodes($element->text))));
                     $text = $this->asgarosforum->cut_string($text, $excerpt_length);
 
                     if (!empty($text)) {
@@ -124,7 +129,7 @@ class AsgarosForumRecentPosts_Widget extends WP_Widget {
                 $output .= '<span class="post-date">'.$this->asgarosforum->get_activity_timestamp($element->date).'</span>';
 
                 $custom_content = apply_filters('asgarosforum_widget_recent_posts_custom_content', '', $element->id);
-                $output .= $custom_content;
+                $output        .= $custom_content;
 
             $output .= '</div>';
             $output .= '</div>';
@@ -136,29 +141,30 @@ class AsgarosForumRecentPosts_Widget extends WP_Widget {
     }
 
     public function widget_output($args, $instance, $output) {
-        // Generate title.
-        $title = __('Recent Forum Posts', 'asgaros-forum');
+		// Generate title.
+        $title = empty($instance['title']) ? '' : $instance['title'];
+		$title = apply_filters('widget_title', $title);
 
-        if ($instance['title']) {
-            $title = $instance['title'];
+        if (empty($title)) {
+            $title = __('Recent Forum Posts', 'asgaros-forum');
         }
 
         // Generate final output.
-        echo wp_kses_post($args['before_widget']);
-        echo wp_kses_post($args['before_title']);
+        echo $args['before_widget'];
+        echo $args['before_title'];
         echo esc_html($title);
-        echo wp_kses_post($args['after_title']);
+        echo $args['after_title'];
         echo wp_kses_post($output);
-        echo wp_kses_post($args['after_widget']);
+        echo $args['after_widget'];
     }
 
     public function form($instance) {
-        $title = isset($instance['title']) ? esc_attr($instance['title']) : __('Recent forum posts', 'asgaros-forum');
-        $number = isset($instance['number']) ? absint($instance['number']) : 3;
-        $show_avatar = isset($instance['show_avatar']) ? (bool)$instance['show_avatar'] : true;
-        $show_excerpt = isset($instance['show_excerpt']) ? (bool)$instance['show_excerpt'] : false;
-        $group_by_topic = isset($instance['group_by_topic']) ? (bool)$instance['group_by_topic'] : true;
-        $forum_filter = isset($instance['forum_filter']) ? $instance['forum_filter'] : array();
+        $title          = isset($instance['title']) ? esc_attr($instance['title']) : __('Recent forum posts', 'asgaros-forum');
+        $number         = isset($instance['number']) ? absint($instance['number']) : 3;
+        $show_avatar    = isset($instance['show_avatar']) ? (bool) $instance['show_avatar'] : true;
+        $show_excerpt   = isset($instance['show_excerpt']) ? (bool) $instance['show_excerpt'] : false;
+        $group_by_topic = isset($instance['group_by_topic']) ? (bool) $instance['group_by_topic'] : true;
+        $forum_filter   = isset($instance['forum_filter']) ? $instance['forum_filter'] : array();
 
 		echo '<p>';
 		echo '<label for="'.esc_attr($this->get_field_id('title')).'">'.esc_html__('Title:', 'asgaros-forum').'</label>';
@@ -227,13 +233,13 @@ class AsgarosForumRecentPosts_Widget extends WP_Widget {
 	}
 
     public function update($new_instance, $old_instance) {
-        $instance = array();
-		$instance['title'] = sanitize_text_field($new_instance['title']);
-		$instance['number'] = (int)$new_instance['number'];
-        $instance['show_avatar'] = isset($new_instance['show_avatar']) ? (bool)$new_instance['show_avatar'] : false;
-        $instance['show_excerpt'] = isset($new_instance['show_excerpt']) ? (bool)$new_instance['show_excerpt'] : false;
-        $instance['group_by_topic'] = isset($new_instance['group_by_topic']) ? (bool)$new_instance['group_by_topic'] : false;
-        $instance['forum_filter'] = isset($new_instance['forum_filter']) ? $new_instance['forum_filter'] : array();
+        $instance                   = array();
+		$instance['title']          = sanitize_text_field($new_instance['title']);
+		$instance['number']         = (int) $new_instance['number'];
+        $instance['show_avatar']    = isset($new_instance['show_avatar']) ? (bool) $new_instance['show_avatar'] : false;
+        $instance['show_excerpt']   = isset($new_instance['show_excerpt']) ? (bool) $new_instance['show_excerpt'] : false;
+        $instance['group_by_topic'] = isset($new_instance['group_by_topic']) ? (bool) $new_instance['group_by_topic'] : false;
+        $instance['forum_filter']   = isset($new_instance['forum_filter']) ? $new_instance['forum_filter'] : array();
 		return $instance;
 	}
 }

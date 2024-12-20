@@ -1,25 +1,27 @@
 <?php
 
-if (!defined('ABSPATH')) exit;
+if (!defined('ABSPATH')) {
+    exit;
+}
 
 class AsgarosForumUploads {
-	private $asgarosforum = null;
+	private $asgarosforum  = null;
 	private $upload_folder = 'asgarosforum';
 	private $upload_path;
 	private $upload_url;
 	private $upload_allowed_filetypes;
 
-	public function __construct($object) {
-		$this->asgarosforum = $object;
+	public function __construct($asgarosForumObject) {
+		$this->asgarosforum = $asgarosForumObject;
 
 		add_action('init', array($this, 'initialize'));
 	}
 
 	public function initialize() {
-		$this->upload_folder = apply_filters('asgarosforum_filter_upload_folder', $this->upload_folder);
-		$upload_dir = wp_upload_dir();
-		$this->upload_path = $upload_dir['basedir'].'/'.$this->upload_folder.'/';
-		$this->upload_url = $upload_dir['baseurl'].'/'.$this->upload_folder.'/';
+		$this->upload_folder            = apply_filters('asgarosforum_filter_upload_folder', $this->upload_folder);
+		$upload_dir                     = wp_upload_dir();
+		$this->upload_path              = $upload_dir['basedir'].'/'.$this->upload_folder.'/';
+		$this->upload_url               = $upload_dir['baseurl'].'/'.$this->upload_folder.'/';
 		$this->upload_allowed_filetypes = explode(',', $this->asgarosforum->options['allowed_filetypes']);
 	}
 
@@ -30,7 +32,7 @@ class AsgarosForumUploads {
             $files = array_diff(scandir($path), array('.', '..'));
 
             foreach ($files as $file) {
-                unlink($path.$file);
+                wp_delete_file($path.$file);
             }
 
             rmdir($path);
@@ -65,10 +67,11 @@ class AsgarosForumUploads {
 				$file_names = array_map('sanitize_file_name', $_FILES['forumfile']['name']);
 
 				foreach ($file_names as $index => $tmpName) {
-					if (!empty($_FILES['forumfile']['error'][$index]) && $_FILES['forumfile']['error'][$index] == 2) {
+                    // TODO: Maybe this check is not required since we are checking against wp_max_upload_size() below.
+					if (!empty($_FILES['forumfile']['error'][$index]) && in_array($_FILES['forumfile']['error'][$index], [1, 2])) {
 						return false;
 					} else if (empty($_FILES['forumfile']['error'][$index]) && !empty($file_names[$index])) {
-						$maximumFileSize = $this->get_maximum_size_in_bytes();
+						$maximumFileSize = min($this->get_maximum_size_in_bytes(), wp_max_upload_size());
 
 						if ($maximumFileSize != 0 && $_FILES['forumfile']['size'][$index] > $maximumFileSize) {
 							return false;
@@ -115,7 +118,7 @@ class AsgarosForumUploads {
 	}
 
 	public function upload_files($post_id, $uploadList) {
-		$path = $this->upload_path.$post_id.'/';
+		$path  = $this->upload_path.$post_id.'/';
 		$links = array();
 		$files = $uploadList;
 
@@ -143,7 +146,7 @@ class AsgarosForumUploads {
 
 	            foreach ($deleted_files as $file) {
 	                if (is_file($path.wp_basename($file))) {
-	                    unlink($path.wp_basename($file));
+	                    wp_delete_file($path.wp_basename($file));
 	                }
 	            }
 	        }
@@ -168,11 +171,11 @@ class AsgarosForumUploads {
     }
 
 	public function show_uploaded_files($post_id, $post_uploads) {
-		$path = $this->upload_path.$post_id.'/';
-        $url = $this->upload_url.$post_id.'/';
-        $uploads = maybe_unserialize($post_uploads);
+		$path          = $this->upload_path.$post_id.'/';
+        $url           = $this->upload_url.$post_id.'/';
+        $uploads       = maybe_unserialize($post_uploads);
         $uploadedFiles = '';
-		$output = '';
+		$output        = '';
 
         if (!empty($uploads) && is_dir($path)) {
 			// Generate special message instead of file-list when hiding uploads for guests.
@@ -211,15 +214,15 @@ class AsgarosForumUploads {
 
 		// Show list of uploaded files first. Also shown when uploads are disabled to manage existing files if it was enabled before.
 		if ($postObject && $this->asgarosforum->current_view === 'editpost') {
-			$path = $this->upload_path.$postObject->id.'/';
-	        $url = $this->upload_url.$postObject->id.'/';
-	        $uploads = maybe_unserialize($postObject->uploads);
+			$path          = $this->upload_path.$postObject->id.'/';
+	        $url           = $this->upload_url.$postObject->id.'/';
+	        $uploads       = maybe_unserialize($postObject->uploads);
 	        $uploadedFiles = '';
 
 			if (!empty($uploads) && is_dir($path)) {
 				foreach ($uploads as $upload) {
 	                if (is_file($path.wp_basename($upload))) {
-						$uploadedFilesCounter++;
+						++$uploadedFilesCounter;
 	                    $uploadedFiles .= '<li>';
 	                    $uploadedFiles .= '<a href="'.$url.utf8_uri_encode($upload).'" target="_blank">'.$upload.'</a> &middot; <a data-filename="'.$upload.'" class="delete">['.__('Delete', 'asgaros-forum').']</a>';
 	                    $uploadedFiles .= '<input type="hidden" name="existingfile[]" value="'.$upload.'">';
@@ -259,7 +262,7 @@ class AsgarosForumUploads {
 				$flag = 'none';
 
 				if ($this->asgarosforum->options['uploads_maximum_number'] == 0 || $uploadedFilesCounter < $this->asgarosforum->options['uploads_maximum_number']) {
-					$uploadedFilesCounter++;
+					++$uploadedFilesCounter;
 					echo '<input type="file" name="forumfile[]"><br>';
 
 					if ($this->asgarosforum->options['uploads_maximum_number'] == 0 || $uploadedFilesCounter < $this->asgarosforum->options['uploads_maximum_number']) {
@@ -308,13 +311,13 @@ class AsgarosForumUploads {
 			switch ($unit) {
 				case 'KB':
 					$size = $size * 1024;
-				break;
+				    break;
 				case 'MB':
 					$size = $size * 1024 * 1024;
-				break;
+				    break;
 				case 'GB':
 					$size = $size * 1024 * 1024 * 1024;
-				break;
+				    break;
 			}
 		}
 

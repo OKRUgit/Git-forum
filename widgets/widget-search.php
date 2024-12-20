@@ -1,34 +1,40 @@
 <?php
 
-if (!defined('ABSPATH')) exit;
+if (!defined('ABSPATH')) {
+    exit;
+}
 
 class AsgarosForumSearch_Widget extends WP_Widget {
 	public function __construct() {
-		$widget_ops = array('classname' => 'asgarosforumsearch_widget', 'description' => __('A search form for Asgaros Forum.', 'asgaros-forum'));
+		$widget_ops = array(
+			'classname'   => 'asgarosforumsearch_widget',
+			'description' => __('A search form for Asgaros Forum.', 'asgaros-forum'),
+		);
 		parent::__construct('asgarosforumsearch_widget', __('Asgaros Forum: Search', 'asgaros-forum'), $widget_ops);
 	}
 
 	public function widget($args, $instance) {
 		global $asgarosforum;
-		$title = null;
 
-		if ($instance['title']) {
-			$title = $instance['title'];
-		} else {
+		// Generate title.
+		$title = empty($instance['title']) ? '' : $instance['title'];
+		$title = apply_filters('widget_title', $title);
+
+		if (empty($title)) {
 			$title = __('Forum Search', 'asgaros-forum');
 		}
 
-		echo wp_kses_post($args['before_widget']);
-		echo wp_kses_post($args['before_title']);
+		echo $args['before_widget'];
+		echo $args['before_title'];
 		echo esc_html($title);
-		echo wp_kses_post($args['after_title']);
+		echo $args['after_title'];
 
 		$locationSetUp = AsgarosForumWidgets::setUpLocation();
 
 		if ($locationSetUp) {
 			// TODO: Rewrite code so can use input-generation of search class.
 			echo '<div class="asgarosforum-widget-search">';
-			echo '<form method="get" action="'.$asgarosforum->get_link('search').'">';
+			echo '<form method="get" action="'.esc_url($asgarosforum->get_link('search')).'">';
 
 			// Workaround for broken search in posts/pages when using plain permalink structure.
 			if (!$asgarosforum->rewrite->use_permalinks) {
@@ -45,7 +51,7 @@ class AsgarosForumSearch_Widget extends WP_Widget {
 			esc_html_e('The forum has not been configured correctly.', 'asgaros-forum');
 		}
 
-		echo wp_kses_post($args['after_widget']);
+		echo $args['after_widget'];
 	}
 
 	public function form($instance) {
@@ -58,7 +64,7 @@ class AsgarosForumSearch_Widget extends WP_Widget {
 	}
 
 	public function update($new_instance, $old_instance) {
-		$instance = array();
+		$instance          = array();
 		$instance['title'] = sanitize_text_field($new_instance['title']);
 		return $instance;
 	}

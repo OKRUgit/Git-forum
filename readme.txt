@@ -1,11 +1,11 @@
 === Asgaros Forum ===
 Contributors: Asgaros, qualmy91
-Donate link: https://www.asgaros.de/donate/
+Donate link: https://asgaros.com/donate/
 Tags: forum, forums, discussion, multisite, community, bulletin, board, asgaros, support
 Requires at least: 4.9
-Tested up to: 6.1
-Requires PHP: 5.2
-Stable tag: 2.2.1
+Tested up to: 6.7
+Requires PHP: 5.3
+Stable tag: 3.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,8 +15,8 @@ Asgaros Forum is the best forum-plugin for WordPress! It comes with dozens of fe
 Asgaros Forum is the perfect WordPress plugin if you want to extend your website with a lightweight and feature-rich discussion board. It is easy to set up, super fast and perfectly integrated into WordPress.
 
 = Support, Demo & Documentation =
-* [Support & Demo](https://www.asgaros.de/support/)
-* [Documentation](https://www.asgaros.de/docs/)
+* [Support & Demo](https://asgaros.com/support/)
+* [Documentation](https://asgaros.com/docs/)
 
 = Features =
 * Simple Content Management
@@ -71,11 +71,9 @@ You can help to translate Asgaros Forum on this site:
 Please only use this site and dont send me your own .po/.mo files because it is hard to maintain if I get multiple translation-files for a language.
 = Please approve my translations =
 You can approve translations by yourself if you are a Project Translation Editor (PTE). Please contact me in the forums if you are a native speaker and want to become a PTE.
-= How can I add my own theme? =
-You can add own themes for your forum in the `/wp-content/themes-asgarosforum` directory (for example: `/wp-content/themes-asgarosforum/my-theme`). All themes in the `/wp-content/themes-asgarosforum` can be activated in the forum options. Each theme must have the following files: `style.css`, `widgets.css` and `editor.css`.
 = Which hooks and filters are available? =
 You can find a list of available hooks and filters on this site:
-[https://www.asgaros.de/support/?view=thread&id=407](https://www.asgaros.de/support/?view=thread&id=407).
+[https://asgaros.com/support/topic/list-of-available-hooks-and-filters/](https://asgaros.com/support/topic/list-of-available-hooks-and-filters/).
 
 == Screenshots ==
 1. The forum overview
@@ -86,6 +84,70 @@ You can find a list of available hooks and filters on this site:
 6. Manage general options
 
 == Changelog ==
+= 3.0.0 =
+* Fixed: _load_textdomain_just_in_time PHP notice
+* Compatibility with WordPress 6.7
+= 2.9.0 =
+* Fixed: Cross-Site Request Forgery vulnerability when marking topics as read
+* Compatibility with WordPress 6.5
+= 2.8.0 =
+* Fixed: PHP Object Injection
+* Performance improvements and code optimizations
+* Compatibility with WordPress 6.4
+= 2.7.2 =
+* Fixed: PHP warning and database error in statistics
+= 2.7.1 =
+* Fixed: PHP parse error in forum-compatibility.php
+* Fixed: Prevent forum administrators from allowing dangerous file extensions for uploads
+* Fixed: Improved file size error handling during file uploads
+* Fixed: Ensure that asgarosforum_filter_profile_link filtering is always performed
+= 2.7.0 =
+* Added: Option which allows users to only delete own topics without replies
+* Added: Support for forum name in title of notifications
+* Fixed: Malformed meta descriptions when using some special characters
+* Fixed: Deprecated error message in statistics
+* Improved compatibility with WP-Sweep
+* Removed: Themes functionality
+* Performance improvements and code optimizations
+* The required minimum PHP version is now 5.3
+= 2.6.0 =
+* Fixed: Minor display issues
+* Fixed: Wrong stylings when using custom colors
+* Compatibility with WordPress 6.3
+= 2.5.1 =
+* Fixed: Wrong stylings when using custom colors
+* Fixed: Display issues on mobile navigation
+* Fixed: Potential error in title generation
+= 2.5.0 =
+* Revised topic view
+* Fixed: Wrong HTML output in forum navigation
+* Added: Option to define minimum time between new posts
+* Changed: Time limit for editing/deleting topics/posts from minutes to seconds
+* Minor design changes
+* Improved mobile design
+* Performance improvements and code optimizations
+* Compatibility with WordPress 6.2
+= 2.4.1 =
+* Fixed: Multiple warnings in widgets
+* Fixed: Wrong stylings when using custom colors
+= 2.4.0 =
+* Fixed: It was not possible to unsubscribe from topics/forums in the subscriptions area
+* Fixed: Don't remove href-attribute if links are allowed in signatures
+* Fixed: Remove slashes from some outputs
+* Fixed: Show groups in mobile view
+* Fixed: Display issues with some themes
+* Changed: Only show moderators, administrators and topic participants in suggestions for mentioning-functionality
+* Minor design changes
+* Performance improvements and code optimizations
+* Updated: Font Awesome to version 6.3.0
+= 2.3.1 =
+* Fixed: Broken automatic embedding
+= 2.3.0 =
+* Fixed: Embedding shortcodes broken under certain conditions
+* Fixed: Rare rendering issues for widgets
+* Fixed: Add missing escaping for output data
+* Fixed: Cross-Site Request Forgery vulnerability when moving topics
+* Performance improvements and code optimizations
 = 2.2.1 =
 * Fixed: Add missing escaping for output data
 = 2.2.0 =
@@ -132,7 +194,7 @@ You can find a list of available hooks and filters on this site:
 * Fixed: Warnings related to the currently implemented security-improvements
 * Fixed: Forum-icons could not get saved correctly
 * Fixed: Correctly save allowed html-tags for signatures in forum-settings
-* Removed: [Advertising functionality](https://www.asgaros.de/support/topic/removal-of-advertising-functionality/)
+* Removed: [Advertising functionality](https://asgaros.com/support/topic/removal-of-advertising-functionality/)
 * Performance improvements and code optimizations
 = 1.15.17 =
 * Fixed: Add missing sanitizing for input data
@@ -490,7 +552,7 @@ You can find a list of available hooks and filters on this site:
 * Minor design changes
 * Minor design changes in the administration area
 * Improved application of custom appearance-settings
-* Mobile-theme improvements
+* Improved mobile design
 * Improve first-time installation-process
 * Screen-reader accessibility improvements
 * Performance improvements and code optimizations
